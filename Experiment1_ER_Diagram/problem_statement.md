@@ -48,25 +48,34 @@ Design a database for patient management, appointments, medical records, and bil
 # ER Diagram Submission - Student Name
 
 ## Scenario Chosen:
-University / Hospital (choose one)
+ Hospital Database
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+![image](https://github.com/user-attachments/assets/f166bc29-b4ec-43ff-98ef-0ef1b75cc6cd)
 
 ## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
-...
+ Patient: Age, Name, Gender, Phone No, Appointment No
+
+Appointment: Appointment No, Duration, Online/Offline, Time, Date
+
+ Doctor: Phone No, Mail ID, D.ID, Name, Specialization
+
+Department: Dept Block, Dept Location, Dept ID, Dept Name
 
 ## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
-...
+Patient ↔ Appointment (1:N, Partial Participation by Patient, Full Participation by Appointment)
+
+Doctor ↔ Appointment (1:N, Full Participation by Doctor, Partial Participation by Appointment)
+
+Doctor ↔ Department (1:N, Full Participation by Department, Partial Participation by Doctor)
 
 ## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
+Prerequisites: Modeled as a Many-to-Many relationship (M:N) between entities (e.g., Course ↔ Prerequisite).
+
+Billing: Patient ↔ Billing is One-to-Many (1:N) with Full Participation by Billing and Partial by Patient.
 
 ## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+The entities, relationships, and assumptions were chosen to reflect real-world hospital operations. Entities like Patient, Doctor, Appointment, and Billing are essential for capturing critical details, while relationships (e.g., Patient ↔ Appointment as 1:N) mirror real-world interactions. Assumptions, such as unique IDs for Patients and Doctors and one Department hosting multiple Doctors, ensure the design remains logical, consistent, and adaptable for practical use.
 
 ## RESULT
+The experiment showed the system effectively modeled entities and relationships, ensuring logical data flow and real-world applicability.
